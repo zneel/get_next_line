@@ -6,7 +6,7 @@
 /*   By: ebouvier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/01 14:33:59 by ebouvier          #+#    #+#             */
-/*   Updated: 2018/07/01 14:55:43 by ebouvier         ###   ########.fr       */
+/*   Updated: 2018/07/02 00:01:18 by ebouvier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,13 @@ int			get_next_line(const int fd, char **line)
 	if (fd < 0 || !line || read(fd, buff, 0) < 0)
 		return (-1);
 	bytes = 1;
-	while (1)
+	while (bytes != 0)
 	{
 		if (!stc[fd] || ft_strchr(stc[fd], '\n') == 0)
 		{
 			bytes = read(fd, buff, BUFF_SIZE);
 			buff[bytes] = '\0';
 		}
-		if (bytes == 0)
-			return (readline(stc, line, fd, bytes));
 		stc[fd] = buffertostr(stc[fd], buff, bytes);
 		if ((ft_strchr(stc[fd], '\n')) != 0)
 		{
@@ -87,5 +85,5 @@ int			get_next_line(const int fd, char **line)
 			return (1);
 		}
 	}
-	return (0);
+	return (readline(stc, line, fd, bytes));
 }
