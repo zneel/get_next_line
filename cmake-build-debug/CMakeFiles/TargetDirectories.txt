@@ -1,3 +1,0 @@
-/home/zneel/CLionProjects/get_next_line/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/zneel/CLionProjects/get_next_line/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/zneel/CLionProjects/get_next_line/cmake-build-debug/CMakeFiles/get_next_line.dir
