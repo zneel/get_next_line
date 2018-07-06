@@ -6,7 +6,7 @@
 /*   By: ebouvier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/01 14:33:59 by ebouvier          #+#    #+#             */
-/*   Updated: 2018/07/02 00:01:18 by ebouvier         ###   ########.fr       */
+/*   Updated: 2018/07/06 13:17:46 by ebouvier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int			get_next_line(const int fd, char **line)
 			bytes = read(fd, buff, BUFF_SIZE);
 			buff[bytes] = '\0';
 		}
-		stc[fd] = buffertostr(stc[fd], buff, bytes);
-		if ((ft_strchr(stc[fd], '\n')) != 0)
+		if ((stc[fd] = buffertostr(stc[fd], buff, bytes)) != NULL
+				&& (ft_strchr(stc[fd], '\n') != 0))
 		{
 			line = tokenline(line, stc[fd]);
 			stc[fd] = tokenstr(stc[fd]);
